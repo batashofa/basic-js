@@ -13,6 +13,15 @@ import {NotImplementedError} from '../extensions/index.js';
  *
  */
 export default class DepthCalculator {
-
+    calculateDepth(arr) {
+        let counter = 1;
+        let max = 0;
+        for (const item of arr) {
+            if (Array.isArray(item)) {
+                max = Math.max(this.calculateDepth(item), max);
+            }
+        }
+        return counter + max;
+    }
 }
 
